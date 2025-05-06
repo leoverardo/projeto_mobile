@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
         borderWidth: 1,
-        borderRadius: 4,
+        borderRadius: 10,
         margin: 3,
         backgroundColor: 'white',
     },
@@ -79,6 +79,10 @@ const styles = StyleSheet.create({
     },
     centralizar: {
       alignItems: 'center'
+    },
+    fundo: {
+        backgroundColor: 'lightblue',
+        flex: 1,
     }
 });
 
