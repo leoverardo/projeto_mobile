@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, ScrollView, TextInput, Pressable, StyleSheet, Alert} from 'react-native';
-import { RadioButton } from 'react-native-paper';
+import { Switch } from 'react-native-paper';
 import { styles } from '../styles/styles';
 
 
 const CadastroCliente = () => {
-        const [checked, setChecked] = React.useState('first');
+        const [ativado, setAtivado] = useState(false);        
 
         return (
                 <ScrollView style={[styles.tela, styles.fundo]}>
@@ -36,33 +36,30 @@ const CadastroCliente = () => {
                         />
 
                         <Text style={stylesLocal.tituloRadio}>Possui Comorbidade?</Text>
+                        </View>
 
-                        <Text style={stylesLocal.RadioButton}>Sim</Text>
-                        <RadioButton
-                            value="Sim"
-                            status={ checked === 'Sim' ? 'checked' : 'unchecked' }
-                            onPress={() => setChecked('Sim')}
-                        />
+                        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                        <Text style={stylesLocal.SwitchText}>Não</Text>
+                        <Switch 
+                                value={ativado} 
+                                onValueChange={(value)=>{setAtivado(value)}} />  
+                        <Text style={stylesLocal.SwitchText}>Sim</Text>  
+                        </View>
 
-                        <Text style={stylesLocal.RadioButton}>Não</Text>
-                        <RadioButton
-                            value="Não"
-                            status={ checked === 'Não' ? 'checked' : 'unchecked' }
-                            onPress={() => setChecked('Não')}
-                        />
-
+                        <View style={{flexDirection: 'row', justifyContent: 'space-around', marginTop: 20}}>
                         <Pressable
-                                style={{backgroundColor: 'green', alignItems:'center', marginTop: 10, padding: 10, borderRadius: 5}}
+                                style={{backgroundColor: 'green', alignItems:'flex-start', marginTop: 10, padding: 10, borderRadius: 5}}
                                     onPress={() => {Alert.alert('Cadastro Realizado!')}}>   
                                 <Text style={styles.titulo2}>Cadastrar</Text>
                         </Pressable>
 
                         <Pressable
-                                style={{backgroundColor: 'red', marginTop: 10, padding: 10, borderRadius: 5}}
+                                style={{backgroundColor: 'red', alignItems:'flex-end', marginTop: 10, padding: 10, borderRadius: 5}}
                                     onPress={() => {Alert.alert('Cadastro Cancelado!')}}>
                                 <Text style={styles.titulo2}>Cancelar</Text>
                         </Pressable>
                         </View>
+                        
                 </ScrollView>
                 
         )
@@ -71,15 +68,18 @@ const CadastroCliente = () => {
 export default CadastroCliente;
 
 const stylesLocal = StyleSheet.create({
-    RadioButton: {
+    SwitchText: {
         color: 'black',
         fontSize: 20,
         fontWeight: 'bold',
+        marginInline: 10,
     },
     tituloRadio: {
         color: 'black',
         fontSize: 20,
         fontWeight: 'bold',
+        marginTop: 20,
+        marginBottom: 10,
     },
     titulo_campos: {
         color: 'black',
@@ -89,5 +89,6 @@ const stylesLocal = StyleSheet.create({
     imagem: {
         width: 100,
         height: 100,
+        marginTop: 20
     }
 });

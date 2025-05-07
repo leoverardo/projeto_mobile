@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
     titulo1: {
         fontSize: 40,
         fontWeight: 'bold',
-        color: 'black'
+        color: 'black',
+        marginTop: 50,
     },
     titulo2: {
         fontSize: 30,
@@ -78,7 +79,8 @@ const styles = StyleSheet.create({
         opacity: 0.5
     },
     centralizar: {
-      alignItems: 'center'
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     fundo: {
         backgroundColor: 'lightblue',
