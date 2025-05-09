@@ -20,11 +20,11 @@ const Notas = (props: NotasProps) => {
     function Aprovar(){
         if (MediaNotas() >= 7) {
             return (
-                <Text style={styles.titulo2}>Aprovado</Text>
+                <Text style={styles.titulo2}>Meus Parbéns Você está Aprovado!</Text>
             )
         } else {
             return (
-                <Text style={styles.titulo2}>Reprovado</Text>
+                <Text style={styles.titulo2}>Você foi Reprovado, Estude mais!</Text>
             )
         }
     }
