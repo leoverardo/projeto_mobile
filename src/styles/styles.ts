@@ -11,6 +11,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'black'
     },
+    nome:{
+        fontSize: 30,
+        textAlign: 'center',
+        color: 'black',
+        marginBottom: 100
+    },
 
     margem: {
         marginTop: 50

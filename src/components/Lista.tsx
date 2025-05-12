@@ -8,6 +8,11 @@ type ListaProps = {
 const Lista = (props: ListaProps) => {
     const [pessoa, setPessoa] = useState('');
     const [lista, setLista] = useState(props.listaPessoas);
+    const [fraseSelecionada, setFraseSelecionada] = useState('');
+
+    const selecionarFrase = (frase: string) => {
+        setFraseSelecionada(frase);
+    };
 
     const adicionarPessoa = () => {
         if (pessoa.trim() !== '') {
@@ -29,9 +34,15 @@ const Lista = (props: ListaProps) => {
                 data={lista}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => (
-                    <Text style={styles.item}>{item}</Text>
+                    <Text
+                        style={styles.item}
+                        onPress={() => selecionarFrase(item)}
+                    >
+                        {item}
+                    </Text>
                 )}
             />
+            <Text style={[styles.titulo1,styles.nome]}>Nome: {fraseSelecionada}</Text>
         </View>
     );
 };
