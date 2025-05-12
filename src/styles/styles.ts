@@ -3,19 +3,43 @@ import { StyleSheet } from "react-native";
 //o StyleSheet é a folha de estilo, equivalente ao css
 const styles = StyleSheet.create({
     tela: {
-        flex: 1, 
-       // backgroundColor: '#00FFFF' 
+        flex: 1,
+        backgroundColor: '#e6eeff'
     },
     tituloTela: {
-      fontSize: 35, 
-      textAlign: 'center',
-      color: 'black' 
+        fontSize: 35,
+        textAlign: 'center',
+        color: 'black'
     },
-    titulo1: {
-        fontSize: 40,
-        fontWeight: 'bold',
+
+    margem: {
+        marginTop: 50
+    },
+
+    item: {
+        padding: 10,
+        fontSize: 20,
         color: 'black',
-        marginTop: 50,
+        borderWidth: 2,
+        borderColor: 'black',
+        borderRadius: 10,
+        margin: 5
+    },
+    item2: {
+        padding: 10,
+        fontSize: 35,
+        color: 'green',
+        borderWidth: 2,
+        borderColor: 'blue',
+        borderRadius: 10,
+        margin: 5
+    },
+
+    titulo1: {
+        marginTop: 40,
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'black'
     },
     titulo2: {
         fontSize: 30,
@@ -24,7 +48,7 @@ const styles = StyleSheet.create({
     },
     botao: {
         justifyContent: 'center',
-        alignItems:'center',
+        alignItems: 'center',
         width: 'auto',
         backgroundColor: 'green',
         paddingVertical: 10,
@@ -33,27 +57,29 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     botao_vermelho: {
-      justifyContent: 'center',
-      alignItems:'center',
-      backgroundColor: 'red',
-      paddingVertical: 10,
-      paddingHorizontal: 30,
-      marginTop: 20,
-      borderRadius: 10
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'red',
+        paddingVertical: 10,
+        paddingHorizontal: 30,
+        marginTop: 20,
+        borderRadius: 10
     },
     texto_botao: {
         fontSize: 20,
         color: 'white'
     },
     titulo_campos: {
-      fontSize: 20,
-      color: 'black'
+        fontSize: 20,
+        color: 'black'
     },
     caixa_texto: {
+        width: '80%',
+        height: 50,
         color: 'black',
         fontSize: 20,
         borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 4,
         margin: 3,
         backgroundColor: 'white',
     },
@@ -63,11 +89,12 @@ const styles = StyleSheet.create({
     },
 
     imagem_200: {
-        width: 200,
-        height: 200
+        alignItems: 'center',
+        width: 100,
+        height: 100
     },
 
-    card:{
+    card: {
         borderWidth: 2,
         borderColor: 'black',
         borderRadius: 15,
@@ -79,13 +106,15 @@ const styles = StyleSheet.create({
         opacity: 0.5
     },
     centralizar: {
-      alignItems: 'center',
-      justifyContent: 'center',
+        alignItems: 'center'
     },
-    fundo: {
-        backgroundColor: 'lightblue',
-        flex: 1,
-    }
+
+    botoes: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 20,
+        width: '80%'
+    },
 });
 
-export {styles};
+export { styles };

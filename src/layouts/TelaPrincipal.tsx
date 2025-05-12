@@ -12,6 +12,7 @@ import CadastroCliente  from '../components/CadastroCliente';
 import Notas from '../components/Notas';
 import CampoDeTexto from '../components/CampoDeTexto';
 import Exemplo15_ConstrucaoCondicao from '../components/Exemplo15_ConstrucaoCondicao';
+import Lista from '../components/Lista';
 //Componente chamado TelaPrincipal que recebe 
 //PrincipalProps 
 //como parametro e constrói uma View com o componente 
@@ -29,7 +30,7 @@ const TelaPrincipal = (props: PrincipalProps) => {
   return (
     <View
       style={[styles.tela]}>  
-        <Exemplo15_ConstrucaoCondicao/>
+        <Lista listaPessoas={["leo", "jair", "Soteldo"]}/>
     </View>
   );
 } 
