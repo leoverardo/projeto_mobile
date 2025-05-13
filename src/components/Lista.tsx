@@ -32,12 +32,10 @@ const Lista = (props: ListaProps) => {
             <Button title="Adicionar" onPress={adicionarPessoa} />
             <FlatList
                 data={lista}
-                keyExtractor={(item, index) => index.toString()}
+                keyExtractor={(index) => index.toString()}
                 renderItem={({ item }) => (
-                    <Text
-                        style={styles.item}
-                        onPress={() => selecionarFrase(item)}
-                    >
+                    <Text style={styles.item}
+                        onPress={() => selecionarFrase(item)}>
                         {item}
                     </Text>
                 )}

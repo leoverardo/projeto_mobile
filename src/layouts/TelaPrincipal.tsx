@@ -29,8 +29,12 @@ const TelaPrincipal = (props: PrincipalProps) => {
   
   return (
     <View
-      style={[styles.tela]}>  
-        <Lista listaPessoas={["leo", "jair", "Soteldo"]}/>
+      style={[styles.tela, styles.centralizar]}> 
+      <Text style={styles.titulo1}>Tela Principal</Text>  
+        <Pressable style={styles.botao}
+          onPress={() => props.navigation.navigate('TelaNova')}>
+          <Text style={styles.titulo1}>Navegar</Text>
+        </Pressable>
     </View>
   );
 } 
