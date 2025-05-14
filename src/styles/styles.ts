@@ -121,6 +121,9 @@ const styles = StyleSheet.create({
         marginTop: 20,
         width: '80%'
     },
+    fundo: {
+        backgroundColor: '#e6eeff'
+    },
 });
 
 export { styles };

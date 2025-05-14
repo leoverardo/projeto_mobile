@@ -2,17 +2,8 @@ import React, { useState } from 'react';
 import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 import { PrincipalProps } from '../navigation/HomeNavigator';
 import { styles } from '../styles/styles';
-import Exemplo01 from '../components/Exemplo01';
-import Exemplo1 from '../components/Exemplo1';
-import Exemplo05_Text from '../components/Exemplo05_Text';
-import Exemplo06_TextInput from '../components/Exemplo06_TextInput';
-import Exemplo14_ParametroFunction from '../components/Exemplo14_ParametroFunction';
-import ExemploCalculo from '../components/ExemploCalculo';
-import CadastroCliente  from '../components/CadastroCliente';
-import Notas from '../components/Notas';
-import CampoDeTexto from '../components/CampoDeTexto';
-import Exemplo15_ConstrucaoCondicao from '../components/Exemplo15_ConstrucaoCondicao';
-import Lista from '../components/Lista';
+
+
 //Componente chamado TelaPrincipal que recebe 
 //PrincipalProps 
 //como parametro e constrói uma View com o componente 
@@ -32,8 +23,16 @@ const TelaPrincipal = (props: PrincipalProps) => {
       style={[styles.tela, styles.centralizar]}> 
       <Text style={styles.titulo1}>Tela Principal</Text>  
         <Pressable style={styles.botao}
-          onPress={() => props.navigation.navigate('TelaNova')}>
-          <Text style={styles.titulo1}>Navegar</Text>
+          onPress={() => props.navigation.navigate('TelaCampoDeTexto')}>
+          <Text style={styles.titulo_campos}>Campo de Texto</Text>
+        </Pressable>
+        <Pressable style={styles.botao}
+          onPress={() => props.navigation.navigate('TelaNotas')}>
+          <Text style={styles.titulo_campos}>Notas Alunos</Text>
+        </Pressable>
+        <Pressable style={styles.botao}
+          onPress={() => props.navigation.navigate('TelaLista')}>
+          <Text style={styles.titulo_campos}>Lista Pessoas</Text>
         </Pressable>
     </View>
   );
