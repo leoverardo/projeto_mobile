@@ -2,13 +2,59 @@ import React, { useState } from 'react';
 import { View, Text, Image, ScrollView, TextInput, Pressable, StyleSheet, Alert} from 'react-native';
 import { Switch } from 'react-native-paper';
 import { styles } from '../styles/styles';
+import { Cliente } from '../types/Cliente';
 
+import firestone from '@react-native-firebase/firestore';
 
 const CadastroCliente = () => {
         const [ativado, setAtivado] = useState('Não');
         const [nome, setNome] = useState('');
         const [email, setEmail] = useState('');
         const [telefone, setTelefone] = useState('');        
+
+function cadastrar() {
+    if (verificaCampos()) {
+      //crie um objeto do tipo Produto
+      let cliente = {
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        comorbidade: ativado
+      } as Cliente;
+
+      firestone()
+        .collection('clientes')
+        .add(cliente)
+        .then(() => {
+          Alert.alert("Cliente", "Cadastrado com sucesso!");
+        })
+        .catch((error: any) => {
+          Alert.alert("Erro", String(error));
+        });
+
+    }
+}
+
+function verificaCampos() {
+    if (!nome) { //se não existe valor em NOME
+      Alert.alert("Nome em branco",
+        "Digite um nome")
+      return false;
+    }
+    if (!email) {
+      Alert.alert("E-Mail em branco",
+        "Digite um email")
+      return false;
+    }
+    if (!telefone) {
+      Alert.alert("Telefone em branco",
+        "Digite um Numero de telefone")
+      return false;
+    }
+
+    return true;
+  }
+
 
         function exibirMensagem() {
                 Alert.alert(
@@ -75,13 +121,13 @@ const CadastroCliente = () => {
                         <View style={{flexDirection: 'row', justifyContent: 'space-around', marginTop: 20}}>
                         <Pressable
                                 style={(state) => [stylesLocal.Cadastrar, state.pressed && styles.click]}
-                                        onPress={() => {exibirMensagem()}}>
+                                        onPress={() => {cadastrar()}}>
                                 <Text style={styles.titulo2}>Cadastrar</Text>
                         </Pressable>
 
                         <Pressable
                                 style={(state) => [stylesLocal.Excluir, state.pressed && styles.click]}
-                                onPress={() => {limparCampos()}}> 
+                                onPress={() => limparCampos()}> 
                                 <Text style={styles.titulo2}>Cancelar</Text>
                         </Pressable>
                         </View>

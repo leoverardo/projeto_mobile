@@ -3,6 +3,8 @@ import TelaPrincipal from "../layouts/TelaPrincipal";
 import TelaCampoDeTexto from "../layouts/TelaCampoDeTexto";
 import TelaNotas from "../layouts/TelaNotas";
 import TelaLista from "../layouts/TelaLista";
+import TelaCadProduto from "../layouts/TelaCadProduto";
+import TelaCadCliente from "../layouts/TelaCadCliente";
 
 //Define quais as telas e os parâmetros de cada tela
 type RootStackParamList = {
@@ -10,6 +12,8 @@ type RootStackParamList = {
   TelaCampoDeTexto: undefined;
   TelaNotas: undefined;
   TelaLista: undefined;
+  TelaCadProduto: undefined;
+  TelaCadCliente: undefined;
 };
 
 //Cria a Stack (tipo de navegação onde as telas estão em uma "pilha")
@@ -29,6 +33,10 @@ const HomeNavigator = () => {
       <Stack.Screen name="TelaCampoDeTexto" component={TelaCampoDeTexto} />
       <Stack.Screen name="TelaNotas" component={TelaNotas} />
       <Stack.Screen name="TelaLista" component={TelaLista} />
+      <Stack.Screen name="TelaCadProduto" component={TelaCadProduto} />
+      <Stack.Screen name="TelaCadCliente" component={TelaCadCliente} />
+      
+
       
     </Stack.Navigator>
     
@@ -45,6 +53,10 @@ type PrincipalProps = NativeStackScreenProps<RootStackParamList,
   'TelaNotas'>;
   type ListaProps = NativeStackScreenProps<RootStackParamList,
   'TelaLista'>;
+  type CadProdutoProps = NativeStackScreenProps<RootStackParamList,
+  'TelaCadProduto'>;
+  type CadClienteProps = NativeStackScreenProps<RootStackParamList,
+  'TelaCadCliente'>;
 
 
 
@@ -56,5 +68,7 @@ export type {
   PrincipalProps,
   onPressBotao,
   NotasProps,
-  ListaProps
+  ListaProps,
+  CadProdutoProps,
+  CadClienteProps
 };
