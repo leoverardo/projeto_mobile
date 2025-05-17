@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 
-//o StyleSheet é a folha de estilo, equivalente ao css
 const styles = StyleSheet.create({
     tela: {
         flex: 1,
@@ -62,6 +61,11 @@ const styles = StyleSheet.create({
         marginTop: 20,
         borderRadius: 10
     },
+    imagem: {
+        width: 100,
+        height: 100,
+        marginTop: 10,
+    },
     botao_vermelho: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -85,8 +89,8 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
         borderWidth: 1,
-        borderRadius: 4,
-        margin: 3,
+        borderRadius: 20,
+        margin: 5,
         backgroundColor: 'white',
     },
 
@@ -124,6 +128,21 @@ const styles = StyleSheet.create({
     fundo: {
         backgroundColor: '#e6eeff'
     },
+    botaoPaciente: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 200,
+        height: 150,
+        backgroundColor: 'blue',
+        marginTop: 100,
+        borderRadius: 50
+    },
+    textoBotaoPaciente: {
+        fontSize: 30,
+        color: 'white',
+        fontWeight: '500',
+        alignItems: 'center'
+    }
 });
 
 export { styles };

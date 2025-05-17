@@ -2,17 +2,17 @@ import React from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { ListaProps } from '../navigation/HomeNavigator';
 import { styles } from '../styles/styles';
-import Lista from '../components/Lista';
+import CadastrarPaciente from '../components/CadastrarPaciente';
 
 
 const TelaLista = (props: ListaProps) => {
   return (
     <View
           style={[styles.tela, styles.centralizar]}> 
-          <Lista listaPessoas={[]}/>
+          <CadastrarPaciente listaPaciente={[]}/>
             <Pressable style={styles.botao}
               onPress={() => props.navigation.goBack()}>
-              <Text style={styles.titulo_campos}>Voltar</Text>
+              <Text style={styles.texto_botao}>Voltar</Text>
             </Pressable>
         </View>
   );
