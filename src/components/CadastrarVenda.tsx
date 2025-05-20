@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, Image, ScrollView, TextInput, Pressable, StyleSheet, Alert} from 'react-native';
+import {Alert, Image, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import { styles } from '../styles/styles';
 import { Venda } from '../types/Venda';
 
 import firestore from '@react-native-firebase/firestore';
 
-const CadastroCliente = () => {
-        const [Filme, setFilme] = useState('');
+const CadastrarVenda = () => {
+       const [Filme, setFilme] = useState('');
         const [Cliente, setCliente] = useState('');
         const [dataVenda, setDataVenda] = useState('');
         const [valorTotal, setValorTotal] = useState('');        
@@ -45,13 +45,13 @@ function verificaCampos() {
       return false;
     }
     if (!dataVenda) {
-      Alert.alert("Telefone em branco",
-        "Digite um Numero de telefone")
+      Alert.alert("Data da Venda em branco",
+        "Digite uma Data da Venda")
       return false;
     }
     if (!valorTotal) {
-      Alert.alert("Telefone em branco",
-        "Digite um Numero de telefone")
+      Alert.alert("Valor Total em branco",
+        "Digite um Valor Total")
       return false;
     }
 
@@ -66,49 +66,43 @@ function verificaCampos() {
                 }
 
         return (
-                <ScrollView style={[styles.tela, styles.fundo]}>
+                <View style={styles.tela}>
                         <View style={styles.centralizar}>
-                        <Text style={styles.titulo1}>Cadastro de Cliente</Text>
-                                <Image
-                                        source={require('../images/cadastro.png')}
-                                        style={stylesLocal.imagem}
-                                />
-                        
-
-                        <Text style={[stylesLocal.titulo_campos, styles.centralizar]}>Nome</Text>
-                        <TextInput
-                        value={Filme}
-                                onChangeText={(text) => {setFilme(text)}}
-                                style={[styles.caixa_texto, styles.largura_70, styles.centralizar]}
-                                placeholder="Ingresso"
+                        <Text style={styles.titulo1}>Cadastro de Venda</Text>
+                        <Image
+                                source={require('../images/cadastro.png')}
+                                style={stylesLocal.imagem}
                         />
 
-                        <Text style={stylesLocal.titulo_campos}>E-mail</Text>
+                        <Text style={[stylesLocal.titulo_campos, styles.centralizar]}>Filme</Text>
                         <TextInput
-                        value={Cliente}
-                                onChangeText={(text) => {setCliente(text)}}
+                                value={Filme}
+                                onChangeText={setFilme}
                                 style={[styles.caixa_texto, styles.largura_70, styles.centralizar]}
-                                placeholder="E-mail"
+                                placeholder="Filme"
                         />
 
-                        <Text style={stylesLocal.titulo_campos}>Telefone</Text>
+                        <Text style={stylesLocal.titulo_campos}>Cliente</Text>
                         <TextInput
-                        value={dataVenda}
-                                onChangeText={(text) => {setDataVenda(text)}}
-                                maxLength={11}
+                                value={Cliente}
+                                onChangeText={setCliente}
                                 style={[styles.caixa_texto, styles.largura_70, styles.centralizar]}
-                                placeholder="Telefone"
+                                placeholder="Cliente"
                         />
 
-                        <Text style={stylesLocal.tituloRadio}>Possui Comorbidade?</Text>
-                        </View>
-
-                        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                        <Text style={stylesLocal.titulo_campos}>Telefone</Text>
+                        <Text style={stylesLocal.titulo_campos}>Data da Venda</Text>
                         <TextInput
-                        value={valorTotal.toString()}
-                                onChangeText={(text) => {setValorTotal(text)}}
-                                maxLength={11}
+                                value={dataVenda}
+                                onChangeText={setDataVenda}
+                                style={[styles.caixa_texto, styles.largura_70, styles.centralizar]}
+                                placeholder="Data da Venda (ex: 2024-06-01)"
+                        />
+
+                        <Text style={stylesLocal.titulo_campos}>Valor Total</Text>
+                        <TextInput
+                                value={valorTotal}
+                                onChangeText={setValorTotal}
+                                keyboardType="numeric"
                                 style={[styles.caixa_texto, styles.largura_70, styles.centralizar]}
                                 placeholder="Valor Total"
                         />
@@ -127,13 +121,14 @@ function verificaCampos() {
                                 <Text style={styles.titulo2}>Cancelar</Text>
                         </Pressable>
                         </View>
-                        
-                </ScrollView>
-                
+
+                </View>
+
         )
 };
 
-export default CadastroCliente;
+export default CadastrarVenda;
+
 
 const stylesLocal = StyleSheet.create({
     SwitchText: {

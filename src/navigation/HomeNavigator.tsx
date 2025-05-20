@@ -1,13 +1,20 @@
 import { NativeStackScreenProps, createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import TelaPrincipal from "../layouts/TelaPrincipal";
-import TelaCadastroPaciente from "../layouts/TelaCadastroPaciente";
+import TelaCadProduto from "../layouts/TelaCadProduto";
+import TelaAltProduto from "../layouts/TelaAltProduto";
+import TelaConsProduto from "../layouts/TelaConsProduto";
+import TelaCadCliente from "../layouts/TelaCadCliente";
+import TelaCadVenda from "../layouts/TelaCadVenda";
 
 
 type RootStackParamList = {
   TelaPrincipal: undefined;
-  TelaCadastroPaciente: undefined;
- 
+  TelaCadCliente: undefined;
+  TelaAltProduto: { id: string };
+  TelaConsProduto: undefined;
+  TelaCadProduto: undefined;
+  TelaCadVenda: undefined;
 };
 
 
@@ -22,7 +29,11 @@ const HomeNavigator = () => {
     >
 
       <Stack.Screen name="TelaPrincipal" component={TelaPrincipal} />
-      <Stack.Screen name="TelaCadastroPaciente" component={TelaCadastroPaciente} />
+      <Stack.Screen name="TelaCadCliente" component={TelaCadCliente} />
+      <Stack.Screen name="TelaAltProduto" component={TelaAltProduto} />
+      <Stack.Screen name="TelaConsProduto" component={TelaConsProduto} />
+      <Stack.Screen name="TelaCadProduto" component={TelaCadProduto} />
+      <Stack.Screen name="TelaCadVenda" component={TelaCadVenda} />
       
     </Stack.Navigator>
     
@@ -31,13 +42,26 @@ const HomeNavigator = () => {
 
 type PrincipalProps = NativeStackScreenProps<RootStackParamList,
   'TelaPrincipal'>;
-  type ListaProps = NativeStackScreenProps<RootStackParamList,
-  'TelaCadastroPaciente'>;
-  
+  type AltProdutoProps = NativeStackScreenProps<RootStackParamList,
+  'TelaAltProduto'>;
+  type ConsProdutoProps = NativeStackScreenProps<RootStackParamList,
+  'TelaConsProduto'>;
+  type CadClienteProps = NativeStackScreenProps<RootStackParamList,
+  'TelaCadCliente'>;
+  type CadProdutoProps = NativeStackScreenProps<RootStackParamList,
+  'TelaCadProduto'>;
+  type CadVendaProps = NativeStackScreenProps<RootStackParamList,
+  'TelaCadVenda'>;
+
+
 export default HomeNavigator;
 
 
 export type {
   PrincipalProps,
-  ListaProps,
+  CadClienteProps,
+  AltProdutoProps,
+  ConsProdutoProps,
+  CadProdutoProps,
+  CadVendaProps
 };
