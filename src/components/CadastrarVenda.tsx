@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {Alert, Image, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import { styles } from '../styles/styles';
 import { Venda } from '../types/Venda';
-
 import firestore from '@react-native-firebase/firestore';
 
 const CadastrarVenda = () => {
@@ -13,7 +12,7 @@ const CadastrarVenda = () => {
 
 function cadastrar() {
     if (verificaCampos()) {
-      let venda: Venda = {
+      const venda = {
         filme: Filme,
         cliente: Cliente,
         dataVenda: dataVenda,
@@ -25,6 +24,7 @@ function cadastrar() {
         .add(venda)
         .then(() => {
           Alert.alert("Venda", "Cadastrada com sucesso!");
+          limparCampos();
         })
         .catch((error: any) => {
           Alert.alert("Erro", String(error));
